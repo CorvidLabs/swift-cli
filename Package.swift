@@ -5,11 +5,7 @@ import PackageDescription
 let package = Package(
     name: "swift-cli",
     platforms: [
-        .iOS(.v15),
-        .macOS(.v12),
-        .tvOS(.v15),
-        .watchOS(.v8),
-        .visionOS(.v1)
+        .macOS(.v12)
     ],
     products: [
         // Individual packages - use only what you need

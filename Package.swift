@@ -25,7 +25,8 @@ let package = Package(
         .executable(name: "swift-cli-example", targets: ["SwiftCLIExample"])
     ],
     dependencies: [
-        .package(url: "https://github.com/swiftlang/swift-docc-plugin", from: "1.4.0")
+        .package(url: "https://github.com/swiftlang/swift-docc-plugin", from: "1.4.0"),
+        .package(url: "https://github.com/apple/swift-atomics.git", from: "1.2.0")
     ],
     targets: [
         // MARK: - Foundation Layer
@@ -38,7 +39,10 @@ let package = Package(
         /// Low-level terminal operations: I/O, raw mode, capabilities
         .target(
             name: "TerminalCore",
-            dependencies: ["ANSI"]
+            dependencies: [
+                "ANSI",
+                .product(name: "Atomics", package: "swift-atomics")
+            ]
         ),
 
         // MARK: - Feature Packages

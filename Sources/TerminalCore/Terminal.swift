@@ -1,4 +1,5 @@
 import ANSI
+import Atomics
 import Dispatch
 
 #if canImport(Darwin)
@@ -6,6 +7,9 @@ import Darwin
 #elseif os(Linux)
 import Glibc
 #endif
+
+/// Thread-safe flag for SIGWINCH signal (accessible from signal handler without actor isolation)
+private let _resizeSignalReceived = ManagedAtomic<Bool>(false)
 
 /// The central actor for terminal operations.
 ///
@@ -60,9 +64,6 @@ public actor Terminal {
 
     /// Signal source for SIGWINCH (terminal resize)
     private var resizeSignalSource: DispatchSourceSignal?
-
-    /// Whether a resize event has occurred
-    public private(set) var resizeOccurred: Bool = false
 
     // MARK: - Initialization
 
@@ -418,12 +419,9 @@ public actor Terminal {
         // Create dispatch source for SIGWINCH
         let source = DispatchSource.makeSignalSource(signal: SIGWINCH, queue: .main)
         source.setEventHandler {
-            // Set a flag that can be checked in the event loop
-            // We can't safely call actor methods from here, so we just
-            // trigger the flag synchronously. The event loop will check it.
-            Task { @MainActor in
-                await Terminal.shared.handleResize()
-            }
+            // Set atomic flag directly - no Task needed
+            // This allows the flag to be set even when poll(2) is blocking
+            _resizeSignalReceived.store(true, ordering: .relaxed)
         }
         source.resume()
         resizeSignalSource = source
@@ -436,17 +434,15 @@ public actor Terminal {
         resizeSignalSource = nil
     }
 
-    /// Handle a resize event.
-    private func handleResize() {
-        size = TerminalSize.detect(fd: outputFD)
-        resizeOccurred = true
-    }
-
     /// Check and clear the resize flag.
     /// Returns true if a resize occurred since last check.
     public func checkResize() -> Bool {
-        let didResize = resizeOccurred
-        resizeOccurred = false
-        return didResize
+        // Atomically check and clear the flag
+        if _resizeSignalReceived.exchange(false, ordering: .relaxed) {
+            // Signal was received - refresh the terminal size
+            size = TerminalSize.detect(fd: outputFD)
+            return true
+        }
+        return false
     }
 }

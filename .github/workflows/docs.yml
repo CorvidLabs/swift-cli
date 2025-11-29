@@ -24,12 +24,29 @@ jobs:
 
       - name: Build Documentation
         run: |
+          # Generate documentation for each module
+          for target in ANSI TerminalCore TerminalStyle TerminalInput TerminalLayout TerminalComponents TerminalGraphics TerminalUI; do
+            swift package --allow-writing-to-directory ./docs-$target \
+              generate-documentation --target $target \
+              --disable-indexing \
+              --transform-for-static-hosting \
+              --hosting-base-path swift-cli/$target \
+              --output-path ./docs-$target
+          done
+
+          # Generate CLI umbrella documentation as landing page
           swift package --allow-writing-to-directory ./docs \
             generate-documentation --target CLI \
             --disable-indexing \
             --transform-for-static-hosting \
             --hosting-base-path swift-cli \
             --output-path ./docs
+
+          # Merge module docs into main docs folder
+          for target in ANSI TerminalCore TerminalStyle TerminalInput TerminalLayout TerminalComponents TerminalGraphics TerminalUI; do
+            cp -r ./docs-$target/data/documentation/* ./docs/data/documentation/ 2>/dev/null || true
+            cp -r ./docs-$target/documentation/* ./docs/documentation/ 2>/dev/null || true
+          done
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -18,7 +18,8 @@ public struct RenderEngine: Sendable {
     private static func renderView<V: View>(_ view: V, size: Size) -> [String] {
         // Handle primitive views
         if let text = view as? Text {
-            return [text.toStyledText().render()]
+            let rendered = text.toStyledText().render()
+            return rendered.split(separator: "\n", omittingEmptySubsequences: false).map(String.init)
         }
 
         if view is EmptyView {

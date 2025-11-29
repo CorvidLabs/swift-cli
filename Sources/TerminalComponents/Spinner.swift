@@ -144,7 +144,7 @@ public actor Spinner {
 
 extension Terminal {
     /// Run an async operation with a spinner.
-    public func withSpinner<T>(
+    public func withSpinner<T: Sendable>(
         message: String,
         style: Spinner.Style = .dots,
         successMessage: String? = nil,

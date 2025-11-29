@@ -173,7 +173,7 @@ public actor ProgressBar {
 
 extension Terminal {
     /// Create and run a progress bar for an async operation.
-    public func withProgress<T>(
+    public func withProgress<T: Sendable>(
         total: Int,
         message: String = "",
         style: ProgressBar.Style = .blocks,

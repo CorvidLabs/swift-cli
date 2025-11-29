@@ -1,7 +1,7 @@
 # SwiftCLI
 
 ![Swift 6.0+](https://img.shields.io/badge/Swift-6.0+-orange.svg)
-![Platforms](https://img.shields.io/badge/Platforms-iOS%20%7C%20macOS%20%7C%20tvOS%20%7C%20watchOS%20%7C%20visionOS-blue.svg)
+![Platforms](https://img.shields.io/badge/Platforms-macOS%20%7C%20Linux-blue.svg)
 ![MIT License](https://img.shields.io/badge/License-MIT-green.svg)
 
 A comprehensive Swift library for building Terminal User Interfaces and CLI applications.
@@ -11,7 +11,7 @@ A comprehensive Swift library for building Terminal User Interfaces and CLI appl
 - **Swift 6** with modern async/await concurrency support
 - **Type-safe** ANSI escape code generation with zero dependencies
 - **Modular architecture** - use only what you need
-- **Multi-platform** support: iOS 15+, macOS 12+, tvOS 15+, watchOS 8+, visionOS 1+
+- **Multi-platform** support: macOS 12+, Linux
 - **SwiftUI-like** TUI framework for building full terminal applications
 
 ## Installation
@@ -164,7 +164,7 @@ SwiftCLI follows a layered, modular architecture. Each module builds on the prev
 ## Requirements
 
 - Swift 6.0+
-- macOS 12+, iOS 15+, tvOS 15+, watchOS 8+, visionOS 1+
+- macOS 12+ or Linux
 
 ## License
 

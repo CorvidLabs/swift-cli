@@ -116,7 +116,11 @@ public actor Terminal {
     public func writeError(_ string: String) {
         let data = Array(string.utf8)
         _ = data.withUnsafeBytes { buffer in
+            #if canImport(Darwin)
             Darwin.write(errorFD, buffer.baseAddress, buffer.count)
+            #elseif os(Linux)
+            Glibc.write(errorFD, buffer.baseAddress, buffer.count)
+            #endif
         }
     }
 
@@ -157,7 +161,11 @@ public actor Terminal {
     private func writeToFD(_ string: String) {
         let data = Array(string.utf8)
         _ = data.withUnsafeBytes { buffer in
+            #if canImport(Darwin)
             Darwin.write(outputFD, buffer.baseAddress, buffer.count)
+            #elseif os(Linux)
+            Glibc.write(outputFD, buffer.baseAddress, buffer.count)
+            #endif
         }
     }
 
@@ -324,7 +332,11 @@ public actor Terminal {
     /// Read a single byte from input (requires raw mode).
     public func readByte() throws -> UInt8? {
         var byte: UInt8 = 0
+        #if canImport(Darwin)
         let result = Darwin.read(inputFD, &byte, 1)
+        #elseif os(Linux)
+        let result = Glibc.read(inputFD, &byte, 1)
+        #endif
         if result == 0 {
             return nil  // EOF
         } else if result < 0 {

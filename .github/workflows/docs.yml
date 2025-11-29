@@ -25,7 +25,7 @@ jobs:
       - name: Build Documentation
         run: |
           swift package --allow-writing-to-directory ./docs \
-            generate-documentation --target SwiftCLI \
+            generate-documentation --target CLI \
             --disable-indexing \
             --transform-for-static-hosting \
             --hosting-base-path swift-cli \

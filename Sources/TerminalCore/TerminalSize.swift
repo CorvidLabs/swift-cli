@@ -31,9 +31,19 @@ public struct TerminalSize: Sendable, Equatable {
 
     /// Detect terminal size from file descriptor.
     public static func detect(fd: Int32 = STDOUT_FILENO) -> TerminalSize {
-        #if canImport(Darwin) || os(Linux)
+        #if canImport(Darwin)
         var ws = winsize()
         if ioctl(fd, TIOCGWINSZ, &ws) == 0 {
+            return TerminalSize(
+                columns: Int(ws.ws_col),
+                rows: Int(ws.ws_row),
+                pixelWidth: ws.ws_xpixel > 0 ? Int(ws.ws_xpixel) : nil,
+                pixelHeight: ws.ws_ypixel > 0 ? Int(ws.ws_ypixel) : nil
+            )
+        }
+        #elseif os(Linux)
+        var ws = winsize()
+        if ioctl(fd, UInt(TIOCGWINSZ), &ws) == 0 {
             return TerminalSize(
                 columns: Int(ws.ws_col),
                 rows: Int(ws.ws_row),

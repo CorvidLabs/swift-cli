@@ -614,7 +614,7 @@ func demoTerminalInfo(_ terminal: Terminal) async throws {
     await terminal.writeLine("")
 
     let caps = await terminal.capabilities
-    let size = await terminal.size
+    let size = await terminal.refreshSize()
 
     await terminal.render(Box(
         """

@@ -19,10 +19,7 @@ let package = Package(
         .library(name: "TerminalUI", targets: ["TerminalUI"]),
 
         // Umbrella - import everything
-        .library(name: "CLI", targets: ["CLI"]),
-
-        // Example executable
-        .executable(name: "swift-cli-example", targets: ["SwiftCLIExample"])
+        .library(name: "CLI", targets: ["CLI"])
     ],
     dependencies: [
         .package(url: "https://github.com/swiftlang/swift-docc-plugin", from: "1.4.0"),
@@ -108,13 +105,6 @@ let package = Package(
                 "TerminalGraphics",
                 "TerminalUI"
             ]
-        ),
-
-        // MARK: - Example
-
-        .executableTarget(
-            name: "SwiftCLIExample",
-            dependencies: ["CLI"]
         ),
 
         // MARK: - Tests

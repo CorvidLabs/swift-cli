@@ -1,8 +1,8 @@
 # SwiftCLI
 
-![Swift 6.0+](https://img.shields.io/badge/Swift-6.0+-orange.svg)
-![Platforms](https://img.shields.io/badge/Platforms-macOS%20%7C%20Linux-blue.svg)
-![MIT License](https://img.shields.io/badge/License-MIT-green.svg)
+[![CI](https://img.shields.io/github/actions/workflow/status/CorvidLabs/swift-cli/ci.yml?label=CI&branch=main)](https://github.com/CorvidLabs/swift-cli/actions/workflows/ci.yml)
+[![License](https://img.shields.io/github/license/CorvidLabs/swift-cli)](https://github.com/CorvidLabs/swift-cli/blob/main/LICENSE)
+[![Version](https://img.shields.io/github/v/release/CorvidLabs/swift-cli)](https://github.com/CorvidLabs/swift-cli/releases)
 
 A comprehensive Swift library for building Terminal User Interfaces and CLI applications.
 

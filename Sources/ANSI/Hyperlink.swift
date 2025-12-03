@@ -4,12 +4,14 @@ import Foundation
 extension ANSI {
     /// Hyperlink (OSC 8) sequences
     public enum Hyperlink: Sendable {
-        /// Create a hyperlink
-        /// - Parameters:
-        ///   - url: The URL to link to
-        ///   - text: The visible text
-        ///   - id: Optional ID for grouping multiple links
-        /// - Returns: The complete hyperlink sequence with text
+        /**
+         Create a hyperlink
+         - Parameters:
+           - url: The URL to link to
+           - text: The visible text
+           - id: Optional ID for grouping multiple links
+         - Returns: The complete hyperlink sequence with text
+         */
         public static func link(url: String, text: String, id: String? = nil) -> String {
             let params = id.map { "id=\($0)" } ?? ""
             return "\(ANSI.OSC)8;\(params);\(url)\(ANSI.BEL)\(text)\(ANSI.OSC)8;;\(ANSI.BEL)"

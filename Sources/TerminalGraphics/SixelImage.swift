@@ -2,11 +2,13 @@ import Foundation
 import ANSI
 import TerminalCore
 
-/// Sixel graphics protocol implementation.
-///
-/// Sixel is an older but widely supported terminal graphics format.
-/// Note: Full sixel encoding requires complex color quantization.
-/// This is a simplified implementation.
+/**
+ Sixel graphics protocol implementation.
+ 
+ Sixel is an older but widely supported terminal graphics format.
+ Note: Full sixel encoding requires complex color quantization.
+ This is a simplified implementation.
+ */
 public struct SixelImage: TerminalImageProtocol, Sendable {
     /// Pre-encoded sixel data.
     public let sixelData: String
@@ -29,13 +31,15 @@ public struct SixelImage: TerminalImageProtocol, Sendable {
 
 /// Sixel encoder for simple images.
 public struct SixelEncoder: Sendable {
-    /// Encode RGB pixel data to sixel format.
-    /// - Parameters:
-    ///   - pixels: RGB pixel data (3 bytes per pixel: R, G, B)
-    ///   - width: Image width
-    ///   - height: Image height
-    ///   - maxColors: Maximum colors in palette (2-256)
-    /// - Returns: Sixel encoded string
+    /**
+     Encode RGB pixel data to sixel format.
+     - Parameters:
+       - pixels: RGB pixel data (3 bytes per pixel: R, G, B)
+       - width: Image width
+       - height: Image height
+       - maxColors: Maximum colors in palette (2-256)
+     - Returns: Sixel encoded string
+     */
     public static func encode(pixels: [UInt8], width: Int, height: Int, maxColors: Int = 256) -> String {
         // This is a simplified encoder that works for basic images
         // A full implementation would need color quantization

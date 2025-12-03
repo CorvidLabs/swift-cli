@@ -11,21 +11,23 @@ import Glibc
 /// Thread-safe flag for SIGWINCH signal (accessible from signal handler without actor isolation)
 private let _resizeSignalReceived = ManagedAtomic<Bool>(false)
 
-/// The central actor for terminal operations.
-///
-/// `Terminal` provides thread-safe access to terminal capabilities including
-/// output, input handling, cursor control, and capability detection.
-///
-/// ## Usage
-///
-/// ```swift
-/// let terminal = Terminal.shared
-/// await terminal.write("Hello, World!\n")
-///
-/// // Enable raw mode for key-by-key input
-/// try await terminal.enableRawMode()
-/// defer { Task { try? await terminal.disableRawMode() } }
-/// ```
+/**
+ The central actor for terminal operations.
+ 
+ `Terminal` provides thread-safe access to terminal capabilities including
+ output, input handling, cursor control, and capability detection.
+ 
+ ## Usage
+ 
+ ```swift
+ let terminal = Terminal.shared
+ await terminal.write("Hello, World!\n")
+ 
+ // Enable raw mode for key-by-key input
+ try await terminal.enableRawMode()
+ defer { Task { try? await terminal.disableRawMode() } }
+ ```
+ */
 public actor Terminal {
     /// The shared terminal instance for standard I/O.
     public static let shared = Terminal()
@@ -252,15 +254,17 @@ public actor Terminal {
     // MARK: - Raw Mode
 
     #if canImport(Darwin) || os(Linux)
-    /// Enable raw mode for character-by-character input.
-    ///
-    /// In raw mode:
-    /// - Input is not line-buffered
-    /// - Echo is disabled
-    /// - Ctrl+C doesn't generate SIGINT
-    /// - Special processing of input is disabled
-    ///
-    /// Call `disableRawMode()` to restore normal terminal behavior.
+    /**
+     Enable raw mode for character-by-character input.
+     
+     In raw mode:
+     - Input is not line-buffered
+     - Echo is disabled
+     - Ctrl+C doesn't generate SIGINT
+     - Special processing of input is disabled
+     
+     Call `disableRawMode()` to restore normal terminal behavior.
+     */
     public func enableRawMode() throws {
         guard !isRawMode else { return }
 

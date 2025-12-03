@@ -1,6 +1,7 @@
 # SwiftCLI
 
-[![CI](https://img.shields.io/github/actions/workflow/status/CorvidLabs/swift-cli/ci.yml?label=CI&branch=main)](https://github.com/CorvidLabs/swift-cli/actions/workflows/ci.yml)
+[![macOS](https://img.shields.io/github/actions/workflow/status/CorvidLabs/swift-cli/macOS.yml?label=macOS&branch=main)](https://github.com/CorvidLabs/swift-cli/actions/workflows/macOS.yml)
+[![Ubuntu](https://img.shields.io/github/actions/workflow/status/CorvidLabs/swift-cli/ubuntu.yml?label=Ubuntu&branch=main)](https://github.com/CorvidLabs/swift-cli/actions/workflows/ubuntu.yml)
 [![License](https://img.shields.io/github/license/CorvidLabs/swift-cli)](https://github.com/CorvidLabs/swift-cli/blob/main/LICENSE)
 [![Version](https://img.shields.io/github/v/release/CorvidLabs/swift-cli)](https://github.com/CorvidLabs/swift-cli/releases)
 

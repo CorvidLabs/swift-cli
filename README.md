@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/github/license/CorvidLabs/swift-cli)](https://github.com/CorvidLabs/swift-cli/blob/main/LICENSE)
 [![Version](https://img.shields.io/github/v/release/CorvidLabs/swift-cli)](https://github.com/CorvidLabs/swift-cli/releases)
 
+> **Pre-1.0 Notice**: This library is under active development. The API may change between minor versions until 1.0.
+
 A comprehensive Swift library for building Terminal User Interfaces and CLI applications.
 
 ## Features

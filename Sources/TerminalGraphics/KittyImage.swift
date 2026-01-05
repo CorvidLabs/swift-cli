@@ -2,9 +2,11 @@ import Foundation
 import ANSI
 import TerminalCore
 
-/// Kitty graphics protocol implementation.
-///
-/// Reference: https://sw.kovidgoyal.net/kitty/graphics-protocol/
+/**
+ Kitty graphics protocol implementation.
+
+ Reference: https://sw.kovidgoyal.net/kitty/graphics-protocol/
+ */
 public struct KittyImage: TerminalImageProtocol, Sendable {
     /// Raw image data (PNG recommended).
     public let data: Data

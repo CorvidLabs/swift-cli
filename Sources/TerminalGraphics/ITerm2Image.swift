@@ -2,9 +2,11 @@ import Foundation
 import ANSI
 import TerminalCore
 
-/// iTerm2 inline image protocol.
-///
-/// Reference: https://iterm2.com/documentation-images.html
+/**
+ iTerm2 inline image protocol.
+
+ Reference: https://iterm2.com/documentation-images.html
+ */
 public struct ITerm2Image: TerminalImageProtocol, Sendable {
     /// Raw image data (PNG, JPEG, GIF, etc.).
     public let data: Data

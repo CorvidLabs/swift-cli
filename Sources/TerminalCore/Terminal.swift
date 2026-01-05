@@ -320,9 +320,11 @@ public actor Terminal {
 
     // MARK: - Input
 
-    /// Wait for input to be available using poll(2).
-    /// Returns true if input is available, false on timeout.
-    /// This is much faster than polling with sleep loops.
+    /**
+     Wait for input to be available using poll(2).
+     Returns true if input is available, false on timeout.
+     This is much faster than polling with sleep loops.
+     */
     public func waitForInput(timeoutMs: Int) -> Bool {
         var pfd = pollfd(fd: inputFD, events: Int16(POLLIN), revents: 0)
         let result = poll(&pfd, 1, Int32(timeoutMs))

@@ -1,8 +1,10 @@
 import Foundation
 
-/// Simple file logger for debugging crashes.
-/// Logs are written synchronously to ensure they persist before crashes.
-/// No initialization required - just call `debugLog("message")` anywhere.
+/**
+ Simple file logger for debugging crashes.
+ Logs are written synchronously to ensure they persist before crashes.
+ No initialization required - just call `debugLog("message")` anywhere.
+ */
 public func debugLog(_ message: String, file: String = #file, line: Int = #line, function: String = #function) {
     let logDir = FileManager.default.homeDirectoryForCurrentUser
         .appendingPathComponent(".swift-cli/logs")

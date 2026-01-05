@@ -5,9 +5,11 @@ import TerminalStyle
 
 /// Terminal extensions for input handling.
 extension Terminal {
-    /// Read a single key with timeout (requires raw mode).
-    /// Returns nil if no input is received within the timeout period.
-    /// Uses poll(2) for sub-millisecond latency on local terminals.
+    /**
+     Read a single key with timeout (requires raw mode).
+     Returns nil if no input is received within the timeout period.
+     Uses poll(2) for sub-millisecond latency on local terminals.
+     */
     public func readKeyWithTimeout(milliseconds: Int) async throws -> KeyCode? {
         // Use poll(2) to wait for input - returns immediately when data arrives
         guard waitForInput(timeoutMs: milliseconds) else {

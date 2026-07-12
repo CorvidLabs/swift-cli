@@ -22,9 +22,7 @@
   "no_spec_change": true,
   "no_spec_change_rationale": "This migration adds governance configuration and CI orchestration without changing Swift CLI behavior; future meaningful implementation changes must add or update canonical specifications.",
   "acceptance_criteria": [
-    "SpecSync advisory coverage passes; all four agent integrations are installed; Trust doctor passes; all Swift CLI modules build and 105 tests pass; existing Linux",
-    "macOS",
-    "and documentation workflows remain green."
+    "SpecSync advisory coverage passes; all four agent integrations are installed; Trust doctor passes; all Swift CLI modules build and 105 tests pass; existing Linux, macOS, and documentation workflows remain green."
   ],
   "selected_artifacts": [
     "context",

@@ -1,0 +1,26 @@
+{
+  "approvals": [
+    {
+      "gate": "definition",
+      "actor": "user:0xLeif",
+      "timestamp": 1783984658,
+      "digest": "20c0a6304234c03dc2265ac016ae807d3f2ee3e5d63fa33351c68fe2e7fe61f1",
+      "note": "Definition approved after source, export, requirement, and evidence review; product behavior remains unchanged."
+    },
+    {
+      "gate": "definition",
+      "actor": "user:0xLeif",
+      "timestamp": 1783985541,
+      "digest": "2a16acb17c77013fd94bea7d2bacd7bf0bd3d56f6ad2c34b142c40b0647f41c1",
+      "note": "Refreshed definition approval after replacing circular lifecycle checklist items with truthful completed preparation and hosted-CI boundary text."
+    },
+    {
+      "gate": "acceptance",
+      "actor": "user:0xLeif",
+      "timestamp": 1783985562,
+      "digest": "740f42a3be468c6e963dd96184182a7bec52d849ea6b94b6e495c425f31ff46a",
+      "note": "Closing approval after strict 100 percent coverage, nine 100/100 companions, all 105 native tests, and local Trust verification; hosted checks remain required before promotion."
+    }
+  ],
+  "reopenings": []
+}

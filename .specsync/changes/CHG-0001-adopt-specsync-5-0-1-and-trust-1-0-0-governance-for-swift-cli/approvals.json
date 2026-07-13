@@ -13,6 +13,49 @@
       "timestamp": 1783950168,
       "digest": "25f36fb05236515f9cc0fc0d83ca9372766ca8f5510875eb4962ad9a7bd10d73",
       "note": "Native Fledge lane passed: full Swift CLI build and 105 tests."
+    },
+    {
+      "gate": "acceptance",
+      "actor": "user:0xLeif",
+      "timestamp": 1783985463,
+      "digest": "8d7677048f1df5631194534fe03190ea81248d236adcb047ddc5b4c6f5d9fd8e",
+      "note": "Reaccepted after fresh verification of unchanged adoption behavior with all 105 tests passing; companion documentation and final policy are governed by CHG2."
+    }
+  ],
+  "reopenings": [
+    {
+      "schema_version": 1,
+      "change_id": "CHG-0001-adopt-specsync-5-0-1-and-trust-1-0-0-governance-for-swift-cli",
+      "actor": "user:0xLeif",
+      "reason": "Canonical full-coverage companion specs, regenerated SpecSync 5 agent integrations, and the final 100 percent Trust contract changed delivery inputs after the governance adoption was accepted; product behavior is unchanged.",
+      "timestamp": 1783985435,
+      "from_state": "accepted",
+      "to_state": "verifying",
+      "superseded_approval": {
+        "gate": "acceptance",
+        "actor": "user:0xLeif",
+        "timestamp": 1783950168,
+        "digest": "25f36fb05236515f9cc0fc0d83ca9372766ca8f5510875eb4962ad9a7bd10d73",
+        "note": "Native Fledge lane passed: full Swift CLI build and 105 tests."
+      },
+      "prior_verification": {
+        "timestamp": 1783950020,
+        "commit": "c8e802d091f67010ea60c42847f95cf7bc549914",
+        "contract_digest": "e32458ebdcb2a2e9f4fac544123b12ca96aaef64bb358bf311c7098c24e50748",
+        "workspace_digest": "6a46d2927975d7797ddeaca70bb6397dc0ed49a8392cfdf31f9efb255c1073db",
+        "acceptance_input_digest": "53870eaff7432f1346227723761952d092f50f936bb62a102a5429dab70e42a3",
+        "passed": true,
+        "commands": [
+          {
+            "command": "fledge lanes run verify",
+            "success": true,
+            "exit_code": 0
+          }
+        ],
+        "requirement_ids": []
+      },
+      "stale_acceptance_input_digest": "53870eaff7432f1346227723761952d092f50f936bb62a102a5429dab70e42a3",
+      "current_acceptance_input_digest": "63d395b51435990d7664277876c047c459116f4fc72977303f5b3c91c7faf5b0"
     }
   ]
 }

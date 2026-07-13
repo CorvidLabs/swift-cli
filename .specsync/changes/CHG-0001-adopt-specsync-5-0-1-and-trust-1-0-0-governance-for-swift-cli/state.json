@@ -6,9 +6,10 @@
   "description": "Adopt SpecSync 5.0.1 and Trust 1.0.0 governance for Swift CLI",
   "kind": "migration",
   "state": "accepted",
+  "canonical_applied": true,
   "base_commit": "c1992dfee86d8dcae84010175175fc7a59d2804a",
   "created_at": 1783885221,
-  "updated_at": 1783950168,
+  "updated_at": 1783985463,
   "affected_specs": [],
   "affected_paths": [
     ".github/",

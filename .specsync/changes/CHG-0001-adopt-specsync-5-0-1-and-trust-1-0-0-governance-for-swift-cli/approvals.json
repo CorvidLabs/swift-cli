@@ -1,3 +1,18 @@
 {
-  "approvals": []
+  "approvals": [
+    {
+      "gate": "definition",
+      "actor": "user:0xLeif",
+      "timestamp": 1783949594,
+      "digest": "e32458ebdcb2a2e9f4fac544123b12ca96aaef64bb358bf311c7098c24e50748",
+      "note": "Definition approved for the authorized SpecSync 5 and Trust 1 rollout after truthful preparation tasks were completed."
+    },
+    {
+      "gate": "acceptance",
+      "actor": "user:0xLeif",
+      "timestamp": 1783950168,
+      "digest": "25f36fb05236515f9cc0fc0d83ca9372766ca8f5510875eb4962ad9a7bd10d73",
+      "note": "Native Fledge lane passed: full Swift CLI build and 105 tests."
+    }
+  ]
 }

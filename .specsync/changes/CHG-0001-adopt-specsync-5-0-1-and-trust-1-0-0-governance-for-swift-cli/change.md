@@ -1,6 +1,6 @@
 ---
 id: CHG-0001-adopt-specsync-5-0-1-and-trust-1-0-0-governance-for-swift-cli
-state: draft
+state: accepted
 type: migration
 base_commit: c1992dfee86d8dcae84010175175fc7a59d2804a
 ---
@@ -17,9 +17,7 @@ Adopt SpecSync 5.0.1 and Trust 1.0.0 governance for Swift CLI
 
 ## Acceptance Criteria
 
-- SpecSync advisory coverage passes; all four agent integrations are installed; Trust doctor passes; all Swift CLI modules build and 105 tests pass; existing Linux
-- macOS
-- and documentation workflows remain green.
+- SpecSync advisory coverage passes; all four agent integrations are installed; Trust doctor passes; all Swift CLI modules build and 105 tests pass; existing Linux, macOS, and documentation workflows remain green.
 
 ## No-spec Rationale
 

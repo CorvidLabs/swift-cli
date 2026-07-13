@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "id": "CHG-0001-adopt-specsync-5-0-1-and-trust-1-0-0-governance-for-swift-cli",
+  "slug": "adopt-specsync-5-0-1-and-trust-1-0-0-governance-for-swift-cli",
+  "title": "Adopt SpecSync 5.0.1 and Trust 1.0.0 governance for Swift CLI",
+  "description": "Adopt SpecSync 5.0.1 and Trust 1.0.0 governance for Swift CLI",
+  "kind": "migration",
+  "state": "accepted",
+  "canonical_applied": true,
+  "base_commit": "c1992dfee86d8dcae84010175175fc7a59d2804a",
+  "created_at": 1783885221,
+  "updated_at": 1783985463,
+  "affected_specs": [],
+  "affected_paths": [
+    ".github/",
+    ".specsync/",
+    ".trust.toml",
+    ".augur.toml",
+    ".attest.json",
+    "AGENTS.md",
+    "fledge.toml"
+  ],
+  "no_spec_change": true,
+  "no_spec_change_rationale": "This migration adds governance configuration and CI orchestration without changing Swift CLI behavior; future meaningful implementation changes must add or update canonical specifications.",
+  "acceptance_criteria": [
+    "SpecSync advisory coverage passes; all four agent integrations are installed; Trust doctor passes; all Swift CLI modules build and 105 tests pass; existing Linux, macOS, and documentation workflows remain green."
+  ],
+  "selected_artifacts": [
+    "context",
+    "research",
+    "design",
+    "plan",
+    "tasks",
+    "testing",
+    "docs"
+  ],
+  "dependencies": [],
+  "answers": {
+    "architecture_risk": "yes",
+    "public_contract": "no"
+  }
+}

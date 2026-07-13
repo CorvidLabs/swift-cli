@@ -1,0 +1,26 @@
+{
+  "timestamp": 1783985553,
+  "commit": "883db75198d12d59be3e049e720b040c47f40edb",
+  "contract_digest": "2a16acb17c77013fd94bea7d2bacd7bf0bd3d56f6ad2c34b142c40b0647f41c1",
+  "workspace_digest": "5d0b5e1447be16a89121671dae428bd2151fedd3d3e6c0d0356d9ec51d47faa6",
+  "acceptance_input_digest": "f906f25a351dd6506ed6459112576230bde42436680d45fc8722d93f1d86ecc5",
+  "passed": true,
+  "commands": [
+    {
+      "command": "fledge lanes run verify",
+      "success": true,
+      "exit_code": 0
+    }
+  ],
+  "requirement_ids": [
+    "REQ-ansi-001",
+    "REQ-cli-001",
+    "REQ-terminal-components-001",
+    "REQ-terminal-core-001",
+    "REQ-terminal-graphics-001",
+    "REQ-terminal-input-001",
+    "REQ-terminal-layout-001",
+    "REQ-terminal-style-001",
+    "REQ-terminal-ui-001"
+  ]
+}
